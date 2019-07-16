@@ -59,6 +59,7 @@ def CONV_block(X, f, filters, stage, block, s = 2):
 
 
 def ResNet18(input_shape, classes = 10):
+    
 
     X_input = Input(input_shape)
 
@@ -101,7 +102,7 @@ x_test = x_test.astype('float32')
 x_train /= 255
 x_test /= 255
 
-
+x_train
 x_train = x_train.reshape(60000,28,28,1)
 x_test = x_test.reshape(10000,28,28,1)
 # Convert class vectors to binary class matrices.
