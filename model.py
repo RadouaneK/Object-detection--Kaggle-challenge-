@@ -134,8 +134,8 @@ def model_yolo(input_shape, classes, bounding_box):
 	x = LeakyReLU(alpha=0.1)(x)
 
 	# Layer 23
-	output = Conv2D(bounding_box * (4 + 1 + classes), (1,1), strides=(1,1), padding='same', name='conv_23')(x)
-	#output = Reshape((, bounding_box, 4 + 1 + classes))(x)
+	x = Conv2D(bounding_box * (4 + 1 + classes), (1,1), strides=(1,1), padding='same', name='conv_23')(x)
+	output = Reshape((, bounding_box, 4 + 1 + classes))(x)
 	model = Model(inputs = input_image, outputs = output)
 
 	return model
