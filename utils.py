@@ -22,8 +22,8 @@ def model_head(y_pred, anchors = anchors):
 
 	conv_dims = K.cast(K.reshape(conv_dims, [1, 1, 1, 1, 2]), K.dtype(y_pred))
 
-	box_xy = K.sigmoid(y_pred[..., :2]) + conv_index 
-	box_wh = K.exp(y_pred[..., 2:4]) * anchors_tensor
+	box_xy = (K.sigmoid(y_pred[..., :2]) + conv_index) / conv_dims 
+	box_wh = K.exp(y_pred[..., 2:4]) * anchors_tensor / conv_dims
 	box_confidence = K.sigmoid(y_pred[..., 4])
 	box_class_probs = K.softmax(y_pred[..., 5:])
 
