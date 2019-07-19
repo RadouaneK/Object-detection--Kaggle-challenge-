@@ -58,3 +58,13 @@ def costum_loss(y_true, y_pred):
 
 	return total_loss
 
+y_true = np.random.randn(3,6,6,5,10)* 2 + 5
+y_pred = np.random.randn(3,6,6,5,10)* 3 + 2
+
+y_true = tf.convert_to_tensor(y_true, dtype = float)
+y_pred = tf.convert_to_tensor(y_pred, dtype = float)
+
+loss = costum_loss(y_true, y_pred)
+#with tf.Session() as sess:
+#	print(sess.run(cell_grid).shape)
+#	print(sess.run(conv_index).shape)
